@@ -1,0 +1,42 @@
+---
+title: "Co2 Prediction"
+subtitle: "(Data Products Course)"
+author: "Massoud Mazar"
+date: "October 8, 2017"
+output: slidy_presentation
+framework: html5slides
+mode: selfcontained
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+library(xtable)
+```
+
+## Why Co2 Prediction
+Want to predict amount of Co2 emission produced from your road trip? You can use Co2 Predictor!
+You only need to know fuel type and engine capacity of the vehicle and this app gives you amount of Co2 produced per kilometer traveled.
+
+## Supported Fuel Types
+
+Following fuel types are supported:
+
+```{r cars, echo = FALSE, results='asis'}
+data <- read.csv("data.csv")
+fuelTypes <- data.frame(unique(data$Fuel.Type))
+print(xtable(fuelTypes), type = "html")
+```
+
+## Our Models
+
+We use linear models for our predictions. This plot shows how our models fit our traning data:
+
+```{r pressure}
+qplot(Engine.Capacity, Co2, data = data, color = Fuel.Type) + geom_smooth(method = "lm")
+```
+
+## Refrences
+
+We use data from this source for creating our models:
+https://www.kaggle.com/dananos/car-emissions-data
