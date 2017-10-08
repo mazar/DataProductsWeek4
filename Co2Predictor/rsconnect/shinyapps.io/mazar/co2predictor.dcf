@@ -1,0 +1,10 @@
+name: co2predictor
+title:
+username:
+account: mazar
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 222916
+bundleId: 1015743
+url: https://mazar.shinyapps.io/co2predictor/
+when: 1507432437.3448
